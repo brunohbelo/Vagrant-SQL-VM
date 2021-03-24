@@ -7,7 +7,7 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password password $DB
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $DBPASSWD"
 
 # instalar e configurar mysql-server
-apt-get -y install mysql-server phpmyadmin
+apt-get -y install mysql-server
 
 mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME"
 mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'%' identified by '$DBPASSWD'"
